@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Mail, Linkedin, Github } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
+import { Button } from "@/components/ui/button";
 
 const Contact = () => {
   const [email, setEmail] = useState("");
@@ -47,12 +48,12 @@ const Contact = () => {
                 required
               />
             </div>
-            <button
+            <Button 
               type="submit"
-              className="w-full bg-navy hover:bg-navy-light text-white py-3 rounded-lg transition-colors"
+              className="w-full bg-navy hover:bg-navy-light text-white"
             >
               Send Message
-            </button>
+            </Button>
           </form>
 
           <div className="flex justify-center space-x-8 mt-12">
