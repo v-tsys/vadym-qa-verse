@@ -2,19 +2,45 @@ import { useState } from "react";
 import { Mail, Linkedin, Github } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent",
-      description: "Thank you for reaching out! I'll get back to you soon.",
-    });
-    setEmail("");
-    setMessage("");
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.send(
+        'service_gmail', // You'll need to replace this with your EmailJS service ID
+        'template_contact', // You'll need to replace this with your EmailJS template ID
+        {
+          from_email: email,
+          to_email: 'bossua1111@gmail.com',
+          message: message,
+        },
+        'your_public_key' // You'll need to replace this with your EmailJS public key
+      );
+
+      toast({
+        title: "Message Sent",
+        description: "Thank you for reaching out! I'll get back to you soon.",
+      });
+      
+      setEmail("");
+      setMessage("");
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -51,13 +77,14 @@ const Contact = () => {
             <Button 
               type="submit"
               className="w-full bg-navy hover:bg-navy-light text-white"
+              disabled={isSubmitting}
             >
-              Send Message
+              {isSubmitting ? "Sending..." : "Send Message"}
             </Button>
           </form>
 
           <div className="flex justify-center space-x-8 mt-12">
-            <a href="mailto:your.email@example.com" className="text-slate-custom hover:text-navy transition-colors">
+            <a href="mailto:bossua1111@gmail.com" className="text-slate-custom hover:text-navy transition-colors">
               <Mail size={24} />
             </a>
             <a href="#" className="text-slate-custom hover:text-navy transition-colors">
