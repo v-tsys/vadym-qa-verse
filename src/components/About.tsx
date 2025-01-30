@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <section id="about" className="py-20 relative">
+    <section id="about" className="py-20 relative bg-gradient-to-br from-[#D3E4FD] to-[#0EA5E9]/10">
       <div 
         className="absolute inset-0 z-0 opacity-5"
         style={{
@@ -10,8 +10,8 @@ const About = () => {
         }}
       />
       <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-3xl font-bold text-navy mb-12 text-center">About Me</h2>
-        <div className="max-w-3xl mx-auto bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-8">
+        <h2 className="text-3xl font-bold text-[#0EA5E9] mb-12 text-center">About Me</h2>
+        <div className="max-w-3xl mx-auto bg-white/80 backdrop-blur-sm rounded-lg shadow-lg p-8 border border-[#D3E4FD]">
           <p className="text-lg text-gray-700 mb-6">
             As a QA Engineer at Plarium, I specialize in ensuring the highest quality standards for gaming software. With a keen eye for detail and a passion for quality assurance, I work diligently to identify and resolve potential issues before they reach our users.
           </p>
