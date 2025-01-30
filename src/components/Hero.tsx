@@ -1,7 +1,14 @@
 const Hero = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-50">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-gray-50 to-purple-50">
       <div className="container mx-auto px-4 py-16 text-center">
+        <div className="mb-8">
+          <img
+            src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
+            alt="Professional workspace"
+            className="w-32 h-32 rounded-full mx-auto object-cover shadow-lg mb-6"
+          />
+        </div>
         <h1 className="text-4xl md:text-6xl font-bold text-navy mb-6 animate-fade-in">
           Vadym Tsys
         </h1>
@@ -13,7 +20,7 @@ const Hero = () => {
         </p>
         <a
           href="#contact"
-          className="bg-navy hover:bg-navy-light text-white px-8 py-3 rounded-lg transition-colors animate-fade-in"
+          className="bg-navy hover:bg-navy-light text-white px-8 py-3 rounded-lg transition-colors animate-fade-in inline-block"
         >
           Get in Touch
         </a>
